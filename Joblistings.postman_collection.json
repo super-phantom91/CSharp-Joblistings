@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "45b86637-942e-43ea-8035-6e72ea197883",
+		"name": "Joblistings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET job details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44358/api/Joblistings/0b589b5a-0ce7-40cd-be72-6a9dd5ec4762",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44358",
+					"path": [
+						"api",
+						"Joblistings",
+						"0b589b5a-0ce7-40cd-be72-6a9dd5ec4762"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET all joblistings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44358/api/Joblistings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44358",
+					"path": [
+						"api",
+						"Joblistings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "React get joblistings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Joblisting",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var timestr = require(\"moment\");\r",
+							"\r",
+							"pm.environment.set('joblistingDate', timestr().add(5, 'days').toISOString());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"{{$guid}}\",\n\t\"title\": \"Joblisting 5 created with API!!!\",\n    \"date\": \"{{joblistingDate}}\",\n\t\"description\": \"Description of the API added joblisting\",\n    \"category\": \"Test through API\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44358/api/Joblistings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44358",
+					"path": [
+						"api",
+						"Joblistings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Joblisting",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var timestr = require(\"moment\");\r",
+							"\r",
+							"pm.environment.set('joblistingDate', timestr().add(3, 'days').toISOString());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"{{$guid}}\",\n\t\"title\": \"Joblisting 5 EDITED with API and AUTOMpper\",\n    \"date\": \"{{joblistingDate}}\",\n\t\"description\": \"Description of the API edited + AUTOMAPPER\",\n    \"category\": \"Test through API\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44358/api/Joblistings/0b589b5a-0ce7-40cd-be72-6a9dd5ec4762",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44358",
+					"path": [
+						"api",
+						"Joblistings",
+						"0b589b5a-0ce7-40cd-be72-6a9dd5ec4762"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Joblisting",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var timestr = require(\"moment\");\r",
+							"\r",
+							"pm.environment.set('joblistingDate', timestr().add(3, 'days').toISOString());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"{{$guid}}\",\n\t\"title\": \"Joblisting 5 EDITED with API and AUTOMpper\",\n    \"date\": \"{{joblistingDate}}\",\n\t\"description\": \"Description of the API edited + AUTOMAPPER\",\n    \"category\": \"Test through API\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44358/api/Joblistings/24800e8d-015d-47ab-ad14-851c19ee458a",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44358",
+					"path": [
+						"api",
+						"Joblistings",
+						"24800e8d-015d-47ab-ad14-851c19ee458a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
